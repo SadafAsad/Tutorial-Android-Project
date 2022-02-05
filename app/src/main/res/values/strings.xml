@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Android-Project</string>
+
+    <string name="screen2">Learning HTML and CSS</string>
+    <string name="screen2_switch_button">Force Sequential Progression</string>
+    <string name="screen2_logout_button">LOGOUT</string>
 </resources>
