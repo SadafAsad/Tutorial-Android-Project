@@ -5,7 +5,7 @@ public class Lesson {
     private String name;
     private int length;
 
-    public void lesson(int number, String name, int length){
+    public Lesson(int number, String name, int length){
         this.number = number;
         this.name = name;
         this.length = length;
