@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/lesson_number"
@@ -11,9 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="1"/>
+        android:layout_marginLeft="20dp"
+        android:text="1"
+        android:textColor="@color/black"/>
 
     <RelativeLayout
         android:id="@+id/lesson_info"
@@ -26,14 +28,16 @@
             android:id="@+id/lesson_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Introduction to the Course"/>
+            android:text="Introduction to the Course"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/lesson_length"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/lesson_name"
-            android:text="Length: 12min"/>
+            android:text="Length: 12min"
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 

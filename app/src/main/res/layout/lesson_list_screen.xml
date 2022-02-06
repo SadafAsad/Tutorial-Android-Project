@@ -12,7 +12,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/screen2"/>
+        android:text="@string/screen2"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
 
     <Switch
         android:id="@+id/sequential_progression"
@@ -31,7 +33,9 @@
         android:layout_below="@id/sequential_progression"
         android:layout_above="@id/logout"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:dividerHeight="2dp"
+        android:background="@drawable/list_border"/>
 
     <Button
         android:id="@+id/logout"
@@ -41,6 +45,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/screen2_logout_button"/>
+        android:text="@string/screen2_logout_button"
+        android:background="@drawable/button_border"
+        android:textColor="@color/black"/>
 
 </RelativeLayout>
