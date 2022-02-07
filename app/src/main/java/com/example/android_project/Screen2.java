@@ -1,6 +1,7 @@
 package com.example.android_project;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -18,7 +19,7 @@ public class Screen2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lesson_list_screen);
-
+        Log.d("abcd","newscreen");
         findViews();
         //setLessons();
 
