@@ -2,7 +2,6 @@ package com.example.android_project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -27,8 +26,8 @@ public class Screen2 extends AppCompatActivity {
         setLessons();
         onClicks();
 
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), lessons);
-        lessons_list.setAdapter(customAdapter);
+        LessonAdapter lessonAdapter = new LessonAdapter(getApplicationContext(), lessons);
+        lessons_list.setAdapter(lessonAdapter);
     }
 
     private void findViews(){

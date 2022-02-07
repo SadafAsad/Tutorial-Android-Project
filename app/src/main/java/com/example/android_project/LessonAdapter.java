@@ -14,12 +14,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-public class CustomAdapter extends BaseAdapter {
+public class LessonAdapter extends BaseAdapter {
     private Context context;
     private Lesson lessons[];
     private LayoutInflater inflater;
 
-    public CustomAdapter(Context context, Lesson[] lessons) {
+    public LessonAdapter(Context context, Lesson[] lessons) {
         this.context = context;
         this.lessons = lessons;
         this.inflater = (LayoutInflater.from(context));
