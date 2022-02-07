@@ -2,6 +2,7 @@ package com.example.android_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -15,7 +16,6 @@ public class Screen2 extends AppCompatActivity {
     private Switch sequential_progression;
     private ListView lessons_list;
     private Button logout;
-    private Lesson lessons[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +23,9 @@ public class Screen2 extends AppCompatActivity {
         setContentView(R.layout.lesson_list_screen);
 
         findViews();
-        setLessons();
         onClicks();
 
-        LessonAdapter lessonAdapter = new LessonAdapter(getApplicationContext(), lessons);
+        LessonAdapter lessonAdapter = new LessonAdapter(getApplicationContext(), ListOfLessons.getInstance().lessonsList());
         lessons_list.setAdapter(lessonAdapter);
 
         if (this.sequential_progression.isChecked()){
@@ -60,14 +59,6 @@ public class Screen2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    private void setLessons(){
-        Lesson lesson1 = new Lesson(1, "Introduction to the Course", 12);
-        Lesson lesson2 = new Lesson(2, "What is Javascript?", 30);
-        Lesson lesson3 = new Lesson(3, "Variables and Conditionals", 80);
-        Lesson lesson4 = new Lesson(4, "Loops", 38);
-        this.lessons = new Lesson[]{lesson1, lesson2, lesson3, lesson4};
     }
 
 }
