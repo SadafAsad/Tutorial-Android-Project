@@ -28,6 +28,14 @@ public class Screen2 extends AppCompatActivity {
 
         LessonAdapter lessonAdapter = new LessonAdapter(getApplicationContext(), lessons);
         lessons_list.setAdapter(lessonAdapter);
+
+        if (this.sequential_progression.isChecked()){
+            // don't allow
+        }
+        else{
+            // allow
+        }
+
     }
 
     private void findViews(){

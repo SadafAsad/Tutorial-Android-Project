@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:padding="10dp"
     android:clickable="true"
-    android:id="@+id/lesson_card_not_finished">
+    android:id="@+id/parent_layout">
 
     <TextView
         android:id="@+id/lesson_number"
