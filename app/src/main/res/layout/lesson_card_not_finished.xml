@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="70dp"
     android:orientation="horizontal"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:clickable="true"
+    android:id="@+id/lesson_card_not_finished">
 
     <TextView
         android:id="@+id/lesson_number"

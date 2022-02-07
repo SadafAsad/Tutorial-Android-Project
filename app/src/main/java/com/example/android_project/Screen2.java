@@ -1,7 +1,10 @@
 package com.example.android_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -19,9 +22,10 @@ public class Screen2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lesson_list_screen);
-        Log.d("abcd","newscreen");
+
         findViews();
         setLessons();
+        onClicks();
 
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), lessons);
         lessons_list.setAdapter(customAdapter);
@@ -31,6 +35,24 @@ public class Screen2 extends AppCompatActivity {
         this.sequential_progression = (Switch) findViewById(R.id.sequential_progression);
         this.lessons_list = (ListView) findViewById(R.id.lessons_list);
         this.logout = (Button) findViewById(R.id.logout);
+    }
+
+    private void onClicks(){
+        this.logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Screen2.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        this.lessons_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(Screen2.this, Screen3.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setLessons(){
