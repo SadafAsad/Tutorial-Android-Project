@@ -1,6 +1,7 @@
 package com.example.android_project;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -47,6 +48,10 @@ public class Screen2 extends AppCompatActivity {
         this.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences sp = getSharedPreferences("skipLogin",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear().apply();
+
                 Intent intent = new Intent(Screen2.this, MainActivity.class);
                 startActivity(intent);
             }

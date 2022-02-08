@@ -58,7 +58,7 @@
         android:onClick="signInButton"/>
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
