@@ -39,7 +39,7 @@ public class LessonAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return lessons[i];
     }
 
     @Override

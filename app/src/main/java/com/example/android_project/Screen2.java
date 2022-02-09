@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,8 +62,25 @@ public class Screen2 extends AppCompatActivity {
         this.lessons_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(Screen2.this, Screen3.class);
-                startActivity(intent);
+                boolean allowed = true;
+                if (sequential_progression.isChecked()){
+                    for (int j=0; j<i; j++){
+                        if (i>0 && !ListOfLessons.getInstance().lessonsList()[j].getStatus()){
+                            Toast toast = Toast.makeText(getApplicationContext(),"Watch the previous lessons first.",Toast.LENGTH_LONG);
+                            toast.show();
+                            allowed = false;
+                            break;
+                        }
+                    }
+                    if (allowed){
+                        Intent intent = new Intent(Screen2.this, Screen3.class);
+                        startActivity(intent);
+                    }
+                }
+                else {
+                    Intent intent = new Intent(Screen2.this, Screen3.class);
+                    startActivity(intent);
+                }
             }
         });
     }
