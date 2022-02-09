@@ -24,10 +24,11 @@ public class Screen2 extends AppCompatActivity {
         setContentView(R.layout.lesson_list_screen);
 
         findViews();
-        onClicks();
 
         LessonAdapter lessonAdapter = new LessonAdapter(getApplicationContext(), ListOfLessons.getInstance().lessonsList());
         lessons_list.setAdapter(lessonAdapter);
+
+        onClicks();
 
         if (this.sequential_progression.isChecked()){
             // don't allow
