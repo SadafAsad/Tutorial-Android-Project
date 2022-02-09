@@ -30,14 +30,6 @@ public class Screen2 extends AppCompatActivity {
         lessons_list.setAdapter(lessonAdapter);
 
         onClicks();
-
-        if (this.sequential_progression.isChecked()){
-            // don't allow
-        }
-        else{
-            // allow
-        }
-
     }
 
     private void findViews(){
