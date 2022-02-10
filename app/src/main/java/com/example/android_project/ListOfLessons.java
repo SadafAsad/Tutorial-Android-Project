@@ -15,9 +15,9 @@ public class ListOfLessons {
 
     public Lesson[] lessonsList(){
         Lesson lesson1 = new Lesson(1, "Introduction to the Course", 12,
-                                    "", "");
+                                    "Description for first Description for first Description for first Description for first Description for first Description for first Description for first Description for first Description for first", "");
         Lesson lesson2 = new Lesson(2, "What is Javascript?", 30,
-                                    "", "");
+                                    "Description for second Description for second Description for second Description for second Description for second Description for second Description for second Description for second Description for second", "");
         Lesson lesson3 = new Lesson(3, "Variables and Conditionals", 80,
                                     "", "");
         Lesson lesson4 = new Lesson(4, "Loops", 38,
