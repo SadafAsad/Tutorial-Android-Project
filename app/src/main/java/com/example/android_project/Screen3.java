@@ -27,10 +27,13 @@ public class Screen3 extends AppCompatActivity {
 
 
         Intent intentFromPrevScreen = getIntent();
-        Lesson lesson =(Lesson) intentFromPrevScreen.getSerializableExtra("Lesson_Object");
-            binding.lessonNumberAndName.setText(lesson.getNumber() + ". " + lesson.getName());
-            binding.lessonLength.setText("Length: " + lesson.getLength() + " min");
-            binding.lessonDescription.setText(lesson.getDescription());
+        //Lesson lesson =(Lesson) intentFromPrevScreen.getSerializableExtra("Lesson_Object");
+        int lesson_index = (int) intentFromPrevScreen.getSerializableExtra("selected_lesson_id");
+            binding.lessonNumberAndName.setText(ListOfLessons.getInstance().lessonsList()[lesson_index].getNumber() +
+                                                ". " + ListOfLessons.getInstance().lessonsList()[lesson_index].getName());
+            binding.lessonLength.setText("Length: " +
+                                        ListOfLessons.getInstance().lessonsList()[lesson_index].getLength() + " min");
+            binding.lessonDescription.setText(ListOfLessons.getInstance().lessonsList()[lesson_index].getDescription());
 
 
         binding.watchLesson.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +41,7 @@ public class Screen3 extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(lesson.getUrl()));
+                intent.setData(Uri.parse(ListOfLessons.getInstance().lessonsList()[lesson_index].getUrl()));
                 intent.setPackage("com.google.android.youtube");
                 PackageManager manager = getPackageManager();
                 List<ResolveInfo> info = manager.queryIntentActivities(intent, 0);
