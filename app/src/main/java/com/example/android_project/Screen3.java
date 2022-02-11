@@ -82,14 +82,6 @@ public class Screen3 extends AppCompatActivity {
             }
         });
 
-        binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Screen3.this, Screen2.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
 
