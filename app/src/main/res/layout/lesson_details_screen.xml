@@ -54,7 +54,8 @@
             android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/watchLesson" />
+            app:layout_constraintTop_toBottomOf="@+id/watchLesson"
+            android:padding="10dp"/>
 
         <Button
             android:id="@+id/saveNotes"
@@ -86,6 +87,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.546"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lessonLength" />
+            app:layout_constraintTop_toBottomOf="@+id/lessonLength"
+            android:padding="20dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
