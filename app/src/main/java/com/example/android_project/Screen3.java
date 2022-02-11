@@ -51,13 +51,24 @@ public class Screen3 extends AppCompatActivity {
                     //No Application can handle your intent
                 }
 
-
-
-
 //                Uri uri = Uri.parse(lesson.getUrl()); // missing 'http://' will cause crashed
 //                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 //                intent.setComponent(new ComponentName("com.google.android.youtube","com.google.android.youtube.PlayerActivity"));
 //                startActivity(intent);
+            }
+        });
+
+        binding.saveNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ListOfLessons.getInstance().lessonsList()[lesson_index].setNotes(binding.notesText.getText().toString());
+            }
+        });
+
+        binding.markComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ListOfLessons.getInstance().lessonsList()[lesson_index].setStatus();
             }
         });
 
