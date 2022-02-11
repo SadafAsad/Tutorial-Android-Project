@@ -1,5 +1,6 @@
 package com.example.android_project;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -29,13 +30,13 @@ public class Screen3 extends AppCompatActivity {
         Intent intentFromPrevScreen = getIntent();
         //Lesson lesson =(Lesson) intentFromPrevScreen.getSerializableExtra("Lesson_Object");
         int lesson_index = (int) intentFromPrevScreen.getSerializableExtra("selected_lesson_id");
-            binding.lessonNumberAndName.setText(ListOfLessons.getInstance().lessonsList()[lesson_index].getNumber() +
-                                                ". " + ListOfLessons.getInstance().lessonsList()[lesson_index].getName());
+            binding.lessonNumberAndName.setText(ListOfLessons.getInstance().getLessonsList()[lesson_index].getNumber() +
+                                                ". " + ListOfLessons.getInstance().getLessonsList()[lesson_index].getName());
             binding.lessonLength.setText("Length: " +
-                                        ListOfLessons.getInstance().lessonsList()[lesson_index].getLength() + " min");
-            binding.lessonDescription.setText(ListOfLessons.getInstance().lessonsList()[lesson_index].getDescription());
+                                        ListOfLessons.getInstance().getLessonsList()[lesson_index].getLength() + " min");
+            binding.lessonDescription.setText(ListOfLessons.getInstance().getLessonsList()[lesson_index].getDescription());
             // must work on being persist
-            binding.notesText.setText(ListOfLessons.getInstance().lessonsList()[lesson_index].getNotes());
+            binding.notesText.setText(ListOfLessons.getInstance().getLessonsList()[lesson_index].getNotes());
 
 
         binding.watchLesson.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +44,7 @@ public class Screen3 extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(ListOfLessons.getInstance().lessonsList()[lesson_index].getUrl()));
+                intent.setData(Uri.parse(ListOfLessons.getInstance().getLessonsList()[lesson_index].getUrl()));
                 intent.setPackage("com.google.android.youtube");
                 PackageManager manager = getPackageManager();
                 List<ResolveInfo> info = manager.queryIntentActivities(intent, 0);
@@ -64,14 +65,14 @@ public class Screen3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //not persisted yet
-                ListOfLessons.getInstance().lessonsList()[lesson_index].setNotes(binding.notesText.getText().toString());
+                ListOfLessons.getInstance().getLessonsList()[lesson_index].setNotes(binding.notesText.getText().toString());
             }
         });
 
         binding.markComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ListOfLessons.getInstance().lessonsList()[lesson_index].setStatus();
+                ListOfLessons.getInstance().getLessonsList()[lesson_index].setStatus();
                 // and goes back
             }
         });
@@ -79,7 +80,8 @@ public class Screen3 extends AppCompatActivity {
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // goes back
+                Intent intent = new Intent(Screen3.this, Screen2.class);
+                startActivity(intent);
             }
         });
 

@@ -26,7 +26,7 @@ public class Screen2 extends AppCompatActivity {
 
         findViews();
 
-        LessonAdapter lessonAdapter = new LessonAdapter(getApplicationContext(), ListOfLessons.getInstance().lessonsList());
+        LessonAdapter lessonAdapter = new LessonAdapter(getApplicationContext(), ListOfLessons.getInstance().getLessonsList());
         lessons_list.setAdapter(lessonAdapter);
 
         onClicks();
@@ -57,7 +57,7 @@ public class Screen2 extends AppCompatActivity {
                 boolean allowed = true;
                 if (sequential_progression.isChecked()){
                     for (int j=0; j<i; j++){
-                        if (i>0 && !ListOfLessons.getInstance().lessonsList()[j].getStatus()){
+                        if (i>0 && !ListOfLessons.getInstance().getLessonsList()[i].getStatus()){
                             Toast toast = Toast.makeText(getApplicationContext(),"Watch the previous lessons first.",Toast.LENGTH_LONG);
                             toast.show();
                             allowed = false;
@@ -70,6 +70,7 @@ public class Screen2 extends AppCompatActivity {
                         //intent.putExtra("Lesson_Object",lesson);
                         intent.putExtra("selected_lesson_id", i);
                         startActivity(intent);
+                        //startActivityForResult(intent, 1);
                     }
                 }
                 else {
@@ -78,6 +79,7 @@ public class Screen2 extends AppCompatActivity {
                     //intent.putExtra("Lesson_Object",lesson);
                     intent.putExtra("selected_lesson_id", i);
                     startActivity(intent);
+                    //startActivityForResult(intent, 1);
                 }
             }
         });
