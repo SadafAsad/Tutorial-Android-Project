@@ -8,7 +8,6 @@ public class Lesson implements Serializable {
     private int length;
     private boolean status;
     private String description;
-    private String notes;
     private String url;
 
     public Lesson(int number, String name, int length, String description, String url){
@@ -17,7 +16,6 @@ public class Lesson implements Serializable {
         this.length = length;
         this.status = false;
         this.description = description;
-        this.notes = "";
         this.url = url;
     }
 
@@ -26,9 +24,7 @@ public class Lesson implements Serializable {
     public int getLength(){ return this.length; }
     public boolean getStatus(){ return this.status; }
     public String getDescription(){ return this.description; }
-    public String getNotes(){ return this.notes; }
     public String getUrl(){ return this.url; }
 
     public void setStatus(){ this.status = true; }
-    public void setNotes(String notes){ this.notes = notes; }
 }

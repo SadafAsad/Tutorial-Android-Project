@@ -3,6 +3,7 @@ package com.example.android_project;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
@@ -35,8 +36,9 @@ public class Screen3 extends AppCompatActivity {
             binding.lessonLength.setText("Length: " +
                                         ListOfLessons.getInstance().getLessonsList()[lesson_index].getLength() + " min");
             binding.lessonDescription.setText(ListOfLessons.getInstance().getLessonsList()[lesson_index].getDescription());
-            // must work on being persist
-            binding.notesText.setText(ListOfLessons.getInstance().getLessonsList()[lesson_index].getNotes());
+
+            SharedPreferences sp = getSharedPreferences("lesson"+lesson_index+"notes",MODE_PRIVATE);
+            binding.notesText.setText(sp.getString("note", ""));
 
 
         binding.watchLesson.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +66,10 @@ public class Screen3 extends AppCompatActivity {
         binding.saveNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //not persisted yet
-                ListOfLessons.getInstance().getLessonsList()[lesson_index].setNotes(binding.notesText.getText().toString());
+                SharedPreferences sp = getSharedPreferences("lesson"+lesson_index+"notes",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("note", binding.notesText.getText().toString());
+                editor.apply();
             }
         });
 
@@ -73,7 +77,8 @@ public class Screen3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ListOfLessons.getInstance().getLessonsList()[lesson_index].setStatus();
-                // and goes back
+                Intent intent = new Intent(Screen3.this, Screen2.class);
+                startActivity(intent);
             }
         });
 
