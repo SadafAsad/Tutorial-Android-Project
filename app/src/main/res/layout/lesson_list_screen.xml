@@ -24,19 +24,19 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="15dp"
-        android:text="@string/screen2_switch_button"/>
+        android:text="@string/screen2_switch_button" />
 
     <ListView
         android:id="@+id/lessons_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/sequential_progression"
         android:layout_above="@id/logout"
+        android:layout_below="@id/sequential_progression"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:dividerHeight="2dp"
         android:background="@drawable/border"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:dividerHeight="2dp" />
 
     <Button
         android:id="@+id/logout"
