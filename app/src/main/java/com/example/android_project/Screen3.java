@@ -34,6 +34,8 @@ public class Screen3 extends AppCompatActivity {
             binding.lessonLength.setText("Length: " +
                                         ListOfLessons.getInstance().lessonsList()[lesson_index].getLength() + " min");
             binding.lessonDescription.setText(ListOfLessons.getInstance().lessonsList()[lesson_index].getDescription());
+            // must work on being persist
+            binding.notesText.setText(ListOfLessons.getInstance().lessonsList()[lesson_index].getNotes());
 
 
         binding.watchLesson.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +63,7 @@ public class Screen3 extends AppCompatActivity {
         binding.saveNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //not persisted yet
                 ListOfLessons.getInstance().lessonsList()[lesson_index].setNotes(binding.notesText.getText().toString());
             }
         });
@@ -69,6 +72,14 @@ public class Screen3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ListOfLessons.getInstance().lessonsList()[lesson_index].setStatus();
+                // and goes back
+            }
+        });
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // goes back
             }
         });
 
