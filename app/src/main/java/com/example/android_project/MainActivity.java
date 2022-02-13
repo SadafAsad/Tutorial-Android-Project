@@ -15,10 +15,14 @@ import android.widget.TextView;
 
 import com.example.android_project.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    LoginInformation onlyUser = new LoginInformation();
+    LoginInformation onlyUser = new LoginInformation("abcd","1234");
+    ArrayList <LoginInformation> listOfLogins = new ArrayList<LoginInformation>();
+
     Switch toggleSwitch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
         toggleSwitch = (Switch) findViewById(R.id.toggleButton);
+
+        listOfLogins.add(onlyUser);
 
         SharedPreferences sp = getSharedPreferences("skipLogin",MODE_PRIVATE);
         boolean skip = sp.getBoolean("toggleButton",false);
@@ -68,22 +74,20 @@ public class MainActivity extends AppCompatActivity {
         EditText user = (EditText) findViewById(R.id.username);
         TextView err = (TextView)  findViewById(R.id.forError);
 
-        onlyUser.setUsername(user.getText().toString());
-        onlyUser.setPassword(pass.getText().toString());
-
-        if(onlyUser.getUsername().isEmpty() || onlyUser.getPassword().isEmpty())
+        if(user.getText().toString().isEmpty() || pass.getText().toString().isEmpty())
         {
             Log.d("error","Any field cannot be left empty");
             err.setText("Any field cannot be left empty");
         }
-        else if(!onlyUser.validUsernameCheck())
+        else if(!validUsernameCheck(listOfLogins,user.getText().toString()))
         {
+            Log.d("abc",user.getText().toString() + listOfLogins);
             Log.d("error","Username does not exist");
             err.setText("Username does not exist");
             user.setText("");
             pass.setText("");
         }
-        else if(onlyUser.validUsernameCheck() && !onlyUser.validPasswordCheck())
+        else if(validUsernameCheck(listOfLogins,user.getText().toString()) && !validPasswordCheck(listOfLogins,user.getText().toString(),pass.getText().toString()))
         {
             Log.d("error","Username password combination is incorrect");
             err.setText("Username password combination is incorrect");
@@ -97,6 +101,34 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+
+    }
+
+
+    public boolean validUsernameCheck(ArrayList<LoginInformation> listOfUsers, String usernameEntered)
+    {
+        for(LoginInformation l1 : listOfUsers)
+        {
+            if(l1.getUsername().equals(usernameEntered))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    public boolean validPasswordCheck(ArrayList<LoginInformation> listOfUsers, String usernameEntered, String passwordEntered)
+    {
+        for(LoginInformation l1 : listOfUsers)
+        {
+            if(l1.getUsername().equals(usernameEntered) && l1.getPassword().equals(passwordEntered))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

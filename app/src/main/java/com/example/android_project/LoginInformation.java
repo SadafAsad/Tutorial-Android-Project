@@ -1,26 +1,17 @@
 package com.example.android_project;
 
+import com.example.android_project.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
+
 public class LoginInformation
 {
     private String username;
     private String password;
 
-    public boolean validUsernameCheck()
-    {
-        if(username.equals("abcd"))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean validPasswordCheck()
-    {
-        if(password.equals("1234"))
-        {
-            return true;
-        }
-        return false;
+    public LoginInformation(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
 
@@ -28,15 +19,8 @@ public class LoginInformation
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
