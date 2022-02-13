@@ -66,20 +66,14 @@ public class Screen2 extends AppCompatActivity {
                     }
                     if (allowed){
                         Intent intent = new Intent(Screen2.this, Screen3.class);
-                        //Lesson lesson = new Lesson(ListOfLessons.getInstance().lessonsList()[i].getNumber(),ListOfLessons.getInstance().lessonsList()[i].getName(),ListOfLessons.getInstance().lessonsList()[i].getLength(),ListOfLessons.getInstance().lessonsList()[i].getDescription(),ListOfLessons.getInstance().lessonsList()[i].getUrl());
-                        //intent.putExtra("Lesson_Object",lesson);
                         intent.putExtra("selected_lesson_id", i);
                         startActivity(intent);
-                        //startActivityForResult(intent, 1);
                     }
                 }
                 else {
                     Intent intent = new Intent(Screen2.this, Screen3.class);
-                    //Lesson lesson = new Lesson(ListOfLessons.getInstance().lessonsList()[i].getNumber(),ListOfLessons.getInstance().lessonsList()[i].getName(),ListOfLessons.getInstance().lessonsList()[i].getLength(),ListOfLessons.getInstance().lessonsList()[i].getDescription(),ListOfLessons.getInstance().lessonsList()[i].getUrl());
-                    //intent.putExtra("Lesson_Object",lesson);
                     intent.putExtra("selected_lesson_id", i);
                     startActivity(intent);
-                    //startActivityForResult(intent, 1);
                 }
             }
         });
