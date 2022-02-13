@@ -22,15 +22,15 @@
         android:id="@+id/lesson_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/lesson_number"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/lesson_number">
 
         <TextView
             android:id="@+id/lesson_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Introduction to the Course"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/lesson_length"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/lesson_name"
             android:text="Length: 12min"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
     </RelativeLayout>
 
