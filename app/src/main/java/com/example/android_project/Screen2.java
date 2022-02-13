@@ -57,7 +57,7 @@ public class Screen2 extends AppCompatActivity {
                 boolean allowed = true;
                 if (sequential_progression.isChecked()){
                     for (int j=0; j<i; j++){
-                        if (i>0 && !ListOfLessons.getInstance().getLessonsList()[i].getStatus()){
+                        if (i>0 && !ListOfLessons.getInstance().getLessonsList()[j].getStatus()){
                             Toast toast = Toast.makeText(getApplicationContext(),"Watch the previous lessons first.",Toast.LENGTH_LONG);
                             toast.show();
                             allowed = false;
