@@ -45,6 +45,10 @@ public class Screen2 extends AppCompatActivity {
                 SharedPreferences.Editor editor = sp.edit();
                 editor.clear().apply();
 
+                for(int i=0; i<ListOfLessons.getInstance().getLessonsList().length; i++){
+                    ListOfLessons.getInstance().getLessonsList()[i].setStatus(false);
+                }
+
                 Intent intent = new Intent(Screen2.this, MainActivity.class);
                 startActivity(intent);
             }

@@ -25,5 +25,6 @@ public class Lesson {
     public String getDescription(){ return this.description; }
     public String getUrl(){ return this.url; }
 
-    public void setStatus(){ this.status = true; }
+    public void setStatus(boolean status){ this.status = status; }
+
 }
