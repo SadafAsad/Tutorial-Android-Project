@@ -1,8 +1,5 @@
 package com.example.android_project;
 
-import com.example.android_project.databinding.ActivityMainBinding;
-
-import java.util.ArrayList;
 
 public class LoginInformation
 {

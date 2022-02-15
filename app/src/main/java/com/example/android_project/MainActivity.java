@@ -7,19 +7,16 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.android_project.databinding.ActivityMainBinding;
+
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
     LoginInformation onlyUser = new LoginInformation("abcd","1234");
     ArrayList <LoginInformation> listOfLogins = new ArrayList<LoginInformation>();
 
@@ -27,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
         toggleSwitch = (Switch) findViewById(R.id.toggleButton);
 
@@ -104,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     public boolean validUsernameCheck(ArrayList<LoginInformation> listOfUsers, String usernameEntered)
     {
         for(LoginInformation l1 : listOfUsers)
@@ -116,8 +111,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
-
 
     public boolean validPasswordCheck(ArrayList<LoginInformation> listOfUsers, String usernameEntered, String passwordEntered)
     {

@@ -1,6 +1,6 @@
 package com.example.android_project;
 
-import java.util.ArrayList;
+
 
 public class ListOfLessons {
 
